@@ -1,4 +1,17 @@
-function [cls_dets,net,nnOpt,im_1] = project515_demo(filename,class,GPU)
+function [cls_dets,gpBox,net,nnOpt,im_1,im_2] = project_demo(filename,class,GPU)
+% Demo:
+% Input:
+% filename: input image. Default as 000005.jpg.
+% class: class of target object. Default as 'person'.
+% GPU: GPU mode or not (cuDNN). Default [1]. If cpu only then [].
+% Output:
+% cls_dets: bounding boxes yielded from RCNN+ box regression
+% gpBox: boundingboxes after GP
+% net: the Dagnn instance of neural network.
+% nnOpt. Hyperparameters of nn.
+% im_1. The yielded image with boxes drawn inside.
+% PS: Each row of boxes are [x1 y1 x2 y2], i.e. the left-top and right-bot
+% coordinates.
 	 if (nargin<1)
         filename = '000005.jpg';
         class = {'person'};
