@@ -5,7 +5,7 @@
   Res_Non = cell(subsetSize,1);
   Res_GP = cell(subsetSize,1);
 
-  for (ii = 1:subsetSize) %parfor sucks with CUDA
+  for (ii = 1:subsetSize) %parfor doesn`t work along with CUDA: graphic meory will be exhausted
      
     imD =ImageBatch_Tiny{ii};
     boxes=edgeBoxesWrapper(imD,boxModel,boxOpt);
